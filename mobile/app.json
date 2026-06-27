@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Race Training",
+    "slug": "race-training-mobile",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "racetraining",
+    "ios": {
+      "bundleIdentifier": "com.racetraining.mobile",
+      "infoPlist": {
+        "NSHealthShareUsageDescription": "We read your steps, heart rate, sleep, weight, and workouts to give your run coach agents real recovery context.",
+        "NSHealthUpdateUsageDescription": "This app does not write data back to Health - read access only."
+      },
+      "entitlements": {
+        "com.apple.developer.healthkit": true
+      }
+    },
+    "android": {
+      "package": "com.racetraining.mobile",
+      "permissions": [
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.READ_HEART_RATE",
+        "android.permission.health.READ_SLEEP",
+        "android.permission.health.READ_WEIGHT",
+        "android.permission.health.READ_ACTIVE_CALORIES_BURNED",
+        "android.permission.health.READ_EXERCISE"
+      ]
+    },
+    "plugins": [
+      "expo-dev-client"
+    ]
+  }
+}

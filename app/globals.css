@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Auto-hide scrollbar: thin track, thumb invisible at rest, fades in on hover/focus */
+.scroll-soft {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.scroll-soft:hover,
+.scroll-soft:focus-within {
+  scrollbar-color: #94a3b8 transparent; /* slate-400 */
+}
+
+.scroll-soft::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.scroll-soft::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-soft::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.scroll-soft:hover::-webkit-scrollbar-thumb,
+.scroll-soft:focus-within::-webkit-scrollbar-thumb {
+  background-color: #94a3b8; /* slate-400 */
+}
+
+.dark .scroll-soft:hover,
+.dark .scroll-soft:focus-within {
+  scrollbar-color: #64748b transparent; /* slate-500 */
+}
+
+.dark .scroll-soft:hover::-webkit-scrollbar-thumb,
+.dark .scroll-soft:focus-within::-webkit-scrollbar-thumb {
+  background-color: #64748b; /* slate-500 */
+}
