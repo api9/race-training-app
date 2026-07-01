@@ -4,8 +4,9 @@ import { getSession, setSession } from "@/lib/session";
 
 export async function GET(req: NextRequest) {
   const code = req.nextUrl.searchParams.get("code");
+  const base = process.env.APP_URL ?? req.url;
   if (!code) {
-    return NextResponse.redirect(new URL("/?error=missing_code", req.url));
+    return NextResponse.redirect(new URL("/?error=missing_code", base));
   }
 
   try {
@@ -23,8 +24,9 @@ export async function GET(req: NextRequest) {
     });
   } catch (err) {
     console.error(err);
-    return NextResponse.redirect(new URL("/?error=strava_auth_failed", req.url));
+    return NextResponse.redirect(new URL("/?error=strava_auth_failed", base));
   }
 
-  return NextResponse.redirect(new URL("/setup", req.url));
+  const base = process.env.APP_URL ?? req.url;
+  return NextResponse.redirect(new URL("/setup", base));
 }
