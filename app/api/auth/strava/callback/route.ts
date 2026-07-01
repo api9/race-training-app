@@ -4,7 +4,7 @@ import { getSession, setSession } from "@/lib/session";
 
 export async function GET(req: NextRequest) {
   const code = req.nextUrl.searchParams.get("code");
-  const base = process.env.APP_URL ?? req.url;
+  const base = process.env.APP_URL || req.url;
   if (!code) {
     return NextResponse.redirect(new URL("/?error=missing_code", base));
   }
