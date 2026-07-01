@@ -27,6 +27,5 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/?error=strava_auth_failed", base));
   }
 
-  const base = process.env.APP_URL ?? req.url;
   return NextResponse.redirect(new URL("/setup", base));
 }
